@@ -23,10 +23,7 @@ public class vanilla_android {
             capabilities.setCapability("platformVersion", "11");
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("isRealMobile", true);
-            
-            //Enter the Custom_ID here that was used to upload your application
-            capabilities.setCapability("app", "ENTER_CUSTOM_ID_HERE");
-
+            capabilities.setCapability("app", "ENTER_CUSTOM_ID_HERE"); //Enter App_ID or Custom ID here
             capabilities.setCapability("deviceOrientation", "PORTRAIT");
             capabilities.setCapability("build", "Java Vanilla - iOS");
             capabilities.setCapability("name", "Sample Test Java");
@@ -41,14 +38,17 @@ public class vanilla_android {
             color.click();
 
             MobileElement text = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/Text"));
-            //Changes the text to proverbial
             text.click();
 
-            //toast is visible
+            //Close the application
+            driver.closeApp();
+
+            //Open the application
+            driver.launchApp();
+
             MobileElement toast = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/toast"));
             toast.click();
 
-            //notification is visible
             MobileElement notification = (MobileElement) driver.findElement(MobileBy.id("com.lambdatest.proverbial:id/notification"));
             notification.click();
 
@@ -59,4 +59,4 @@ public class vanilla_android {
         }
         driver.quit();
     }
-    }
+}

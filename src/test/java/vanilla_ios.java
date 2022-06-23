@@ -25,10 +25,7 @@ public class vanilla_ios {
             caps.setCapability("platformVersion", "15");
             caps.setCapability("deviceName", "iPhone 12");
             caps.setCapability("isRealMobile", true);
-            
-            //Enter the Custom_ID here that was used to upload your application
-            caps.setCapability("app", "ENTER_CUSTOM_ID_HERE");
-         
+            caps.setCapability("app", "ENTER_CUSTOM_ID_HERE"); //Enter App_ID or Custom ID here
             caps.setCapability("platformName", "iOS");
             caps.setCapability("build", "Java Vanilla - iOS");
             caps.setCapability("name", "Sample Test Java");
@@ -42,11 +39,18 @@ public class vanilla_ios {
 
             driver.findElement(MobileBy.id("color")).click();
             Thread.sleep(1000);
-
             driver.findElement(MobileBy.id("Text")).click();
             Thread.sleep(1000);
+
+            //Close the application
+            driver.closeApp();
+
+            //Open the application
+            driver.launchApp();
+
             driver.findElement(MobileBy.id("toast")).click();
             Thread.sleep(1000);
+
             driver.findElement(MobileBy.id("notification")).click();
             Thread.sleep(2000);
 
